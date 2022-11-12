@@ -41,6 +41,8 @@ public class Test {
                 .mapToInt(Integer::valueOf)
                 .toArray();
 
+        int oldN = Operation.n;
+        Operation.n = 0; //+
         for (int i = 0; i < uniqueTime.length; i++) {
             int sumTime = 0;
             int sumMoney = 0;
@@ -57,7 +59,8 @@ public class Test {
                 uniqueOperation = new Operation(sumTime, sumMoney);
             }
 
-            System.out.println("Операция " + (i + 1) + ": " + uniqueOperation.getInfo());
+            System.out.println(uniqueOperation.getInfo());
         }
+        Operation.n = oldN;
     }
 }

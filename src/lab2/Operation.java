@@ -2,10 +2,13 @@ package lab2;
 
 public class Operation implements Printable {
 
+    protected static int n;
+    private int id;
     private int time;
     private int cost;
 
     public Operation(int time, int cost) {
+        this.id = ++n;
         this.time = time;
         this.cost = cost;
     }
@@ -15,7 +18,7 @@ public class Operation implements Printable {
 
     @Override
     public String getInfo() {
-        return "время - " + time + ", стоимость - " + cost + ".";
+        return "Операция " + id + ": время - " + time + ", стоимость - " + cost + "."; //+
     }
 
     public int getTime() {

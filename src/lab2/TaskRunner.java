@@ -1,8 +1,10 @@
 package lab2;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * Быстродействие системы. На вход подается массив объекта класса операций,
@@ -29,7 +31,7 @@ public class TaskRunner {
                 new FreeOperation(99)
         };
 
-        Employee[] employee = new Employee[] {
+        Employee[] employee = new Employee[]{
                 new Employee("Рома"),
                 new Employee("Витя"),
                 new Employee("Рома"),
@@ -43,16 +45,11 @@ public class TaskRunner {
                 new Employee("Саша")
         };
 
-        Map<Operation, Employee> map = new LinkedHashMap<>();
-        for (int i = 0; i < operations.length; i++) {
-            map.put(operations[i], employee[i]);
-        }
+        Printable[] entities = Stream.concat(Arrays.stream(operations), Arrays.stream(employee))
+                .toArray(Printable[]::new);
 
-        int i = 0;
-        for (Map.Entry<Operation, Employee> entry : map.entrySet())
-        {
-            System.out.println("Операция " + (i + 1) + ": " + entry.getKey().getInfo() + " " + entry.getValue().getInfo());
-            i++;
+        for (Printable entity : entities) {
+            System.out.println(entity.getInfo());
         }
 
         Test.printSums(operations);

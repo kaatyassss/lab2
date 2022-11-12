@@ -21,6 +21,6 @@ public class Employee implements Printable {
 
     @Override
     public String getInfo() {
-        return "Рабочий № " + id + ", имя рабочего: " + name;
+        return "Рабочий № " + id + ". Имя рабочего: " + name;
     }
 }

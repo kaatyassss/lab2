@@ -2,16 +2,18 @@ package lab2;
 
 public class FreeOperation extends Operation {
 
+    private final int id;
     private int time;
 
     public FreeOperation(int time) {
+        this.id = ++n;
         this.time = time;
     }
 
     @Override
     public String getInfo() {
-        return "время - " + time + ", стоимость - бесплатно.";
-    }
+        return "Операция " + id + ": время - " + time + ", стоимость - бесплатно.";
+    } //+
 
     @Override
     public int getTime() {
